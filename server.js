@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 
 // PORT Variable declaration
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
-// Coonect Database
+// Connect Database
 const connectDB = require('./config/db');
 connectDB();
 
