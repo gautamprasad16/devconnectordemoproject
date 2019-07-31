@@ -8,6 +8,8 @@ import NotFound from '../layout/NotFound';
 import PrivateRoute from './PrivateRoute';
 import { Route, Switch } from 'react-router-dom';
 import EditProfile from '../profile/EditProfile';
+import AddExperience from '../profile/AddExperience';
+import AddEducation from '../profile/AddEducation';
 
 const Routes = () => {
     return (
@@ -19,6 +21,8 @@ const Routes = () => {
                 <PrivateRoute exact path='/dashboard' component={Dashboard} />
                 <PrivateRoute exact path='/createProfile' component={CreateProfile} />
                 <PrivateRoute exact path='/editProfile' component={EditProfile} />
+                <PrivateRoute exact path='/addExperience' component={AddExperience} />
+                <PrivateRoute exact path='/addEducation' component={AddEducation} />
                 <Route component={NotFound} />
             </Switch>
         </section>

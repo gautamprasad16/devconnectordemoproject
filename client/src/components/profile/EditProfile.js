@@ -60,7 +60,6 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log(JSON.stringify(formData))
         formData.skills = skills.split(',').map(e => e.trim())
         formData.social = {
             facebook,

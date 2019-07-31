@@ -40,9 +40,9 @@ router.get('/me', authenticateToken, async (req, res) => {
 // @desc        create or update the user profile
 // @access      Private
 router.post('/', [authenticateToken, [
-        check('status', 'status is required').not().isEmpty(),
-        check('skills', 'skill is required').not().isEmpty()
-    ]],
+    check('status', 'status is required').not().isEmpty(),
+    check('skills', 'skill is required').not().isEmpty()
+]],
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -85,10 +85,10 @@ router.post('/', [authenticateToken, [
                 profile = await Profile.findOneAndUpdate({
                     user: req.user.id
                 }, {
-                    $set: profileFields
-                }, {
-                    new: true
-                });
+                        $set: profileFields
+                    }, {
+                        new: true
+                    });
                 return res.json(profile);
             } else {
                 profile = new Profile(profileFields);
@@ -153,7 +153,7 @@ router.get('/user/:user_id', authenticateToken, async (req, res) => {
 router.delete('/', authenticateToken, async (req, res) => {
     try {
         // Remove User Post
-        await Post.remove({
+        await Post.deleteMany({
             user: req.user.id
         });
         // Remove Profile
@@ -198,7 +198,6 @@ router.put('/experience', [authenticateToken, [
         current,
         description
     } = req.body;
-    console.log(JSON.stringify(req.body));
 
     const newExp = {
         title,
@@ -272,7 +271,6 @@ router.put('/education', [authenticateToken, [
         toDate,
         description
     } = req.body;
-    console.log(JSON.stringify(req.body));
 
     const newEdu = {
         school,

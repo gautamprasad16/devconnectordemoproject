@@ -162,7 +162,6 @@ router.put('/unlike/:post_Id', authenticateToken, async (req, res) => {
         }
 
         function sameUser(e) {
-            console.log("asdf");
             return e.user.toString() === req.user.id;
         }
         let index = -1;
@@ -226,7 +225,6 @@ router.post('/comment/:post_Id', [authenticateToken, [check('text', 'text is req
 // @access      Private 
 router.delete('/comment/:post_id/:comment_id', authenticateToken, async (req, res) => {
     try {
-        console.log(JSON.stringify(req.params));
         const post = await Post.findById(req.params.post_id);
 
         if (!post) {
@@ -246,7 +244,6 @@ router.delete('/comment/:post_id/:comment_id', authenticateToken, async (req, re
         }
 
         function sameUser(e) {
-            console.log("asdf");
             return e.user.toString() === req.user.id;
         }
         if (!removeFlag) {
